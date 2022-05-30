@@ -59,7 +59,7 @@ fun card_value((_, Ace)) = 11
 fun remove_card([], c, e) = raise e
   | remove_card(h::t, c, e) =
     if h = c then t
-    else h::remove_card(t, c, e);
+    else h::remove_card(t, c, e)
 
 (*d task*)
 fun all_same_color([]) = true
@@ -76,11 +76,11 @@ fun sum_cards(cs) =
    in tail_recursive(cs, 0) end
 
 (*f task*)
-fun score(cs, g) = 
-    let fun subScore(cs) = 
+fun score(cs, g) =
+    let fun subScore(cs) =
         if sum_cards(cs) > g
         then 3 * (sum_cards(cs) - g)
-        else g - sum_cards(cs)  
+        else g - sum_cards(cs)
 in 
    if all_same_color(cs)
    then subScore(cs) div 2
